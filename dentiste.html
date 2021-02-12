@@ -1,0 +1,46 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+  layout:decorator="template1">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>list rendezvous</title>
+ <link rel="stylesheet" type="text/css"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"
+  th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" type="text/css"
+  href="css/style.css"
+  th:href="@{css/style.css}"/>
+</head>
+<body>
+
+ <p></p>
+
+<p></p>
+<div class="container spacer">
+<table class="table table-striped">
+<thead>
+<tr>
+<th>ID</th><th>Nom</th><th>Prenom</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="d:${listDen}">
+<td th:text="${d.id_dentiste}"></td>
+<td th:text="${d.nom_dentiste}"></td>
+<td th:text="${d. prenom_dentiste}"></td>
+
+<td><a th:href="@{edit(id_dentiste=${d.id_dentiste})}">Edit</a></td>
+<td><a onclick="return confirm('Etes vous Sure?')" th:href="@{delete(id_dentiste=${d.id_dentiste})}">Delete</a></td>
+</tr>
+
+</tbody>
+
+
+</table>
+</div>
+
+</body>
+</html>

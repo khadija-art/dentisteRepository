@@ -1,0 +1,77 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+  layout:decorator="template1">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Formulaire patient</title>
+ <link rel="stylesheet" type="text/css"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"
+  th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" type="text/css"
+  href="css/style.css"
+  th:href="@{css/style.css}"/>
+</head>
+<body>
+<p></p>
+<div class="container">
+<div class="panel panel-default">
+<div class="panel-heading">Saisie d'un Patient</div>
+<div class="panel-body"> 
+<form th:action="@{save}" method="post">
+<div class="form-group">
+<label class="control-label">Nom</label>
+<input class="form-control" type="text" name="nom_patient" th:value="${patient.nom_patient}" />
+
+</div>
+<div class="form-group">
+<label class="control-label">Prenom</label>
+<input class="form-control" type="text" name="prenom_patient" th:value="${patient.prenom_patient}" />
+
+</div>
+<div class="form-group">
+<label class="control-label">Genre</label>
+<div>
+	<input type="radio" name ="genre" value="femme" checked="checked" />
+	<label>Femme</label>
+    <input type="radio" name ="genre" value="homme"/>
+	<label>Homme</label>
+	<input type="radio" name ="genre" value="fille"/>
+	<label>Fille</label>
+	<input type="radio" name ="genre" value="garcon"/>
+	<label>Garçon</label>
+	</div>								
+</div>
+<div class="form-group">
+<label class="control-label">Telephone</label>
+<input class="form-control" type="text" name="Tel_patient" th:value="${patient.Tel_patient}" />
+
+</div>
+<div class="form-group">
+<label class="control-label">Mutuelle</label>
+<input class="form-control" type="text" name="n_mutuelle" th:value="${patient.n_mutuelle}" />
+
+</div>
+<div class="form-group">
+<label class="control-label">CNSS</label>
+<input class="form-control" type="text" name="cnss" th:value="${patient.cnss}" />
+
+</div>
+<div class="form-group">
+<label class="control-label">Email</label>
+<input class="form-control" type="text" name="email" th:value="${patient.email}" />
+
+</div>
+<div>
+<button type="submit" class="btn btn-primary">Save</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+
+</body>
+</html>

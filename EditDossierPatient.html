@@ -1,0 +1,103 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+  layout:decorator="template1">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Formulaire Dossier patient</title>
+ <link rel="stylesheet" type="text/css"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"
+  th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" type="text/css"
+  href="css/style.css"
+  th:href="@{css/style.css}"/>
+</head>
+<body>
+<p></p>
+
+						
+<div class="container spacer">
+
+<div class="col-md-6 offset-md-3 message">
+<div class="card card-primary">
+<div class="card-header bg-info text-white">Dossier Patient</div>
+<div class="card-body">
+<form th:action="@{update}" method="post">
+<p><h2>Fiche Médicale</h2></p>
+<div class="form-group">
+<label class="control-label">ID</label>
+<input class="form-control" type="text" name="id_dossier" th:value="${dos?.id_dossier}" />
+
+</div>
+<div class="form-group">
+<label class="control-label">Acte Medicale</label>
+<input class="form-control" type="text" name="fiche_medicale.acte_medicale" th:value="${dos?.fiche_medicale.acte_medicale}" />
+
+</div>
+
+<div class="form-group">
+<label class="control-label">Shema Dentaire</label>
+<input type="text" name ="fiche_medicale.schema_dentaire" th:value="${dos?.fiche_medicale.schema_dentaire}" />
+	</div>	
+	<div class="form-group">
+<label class="control-label">Date</label>
+<input class="form-control" type="date" name="fiche_medicale.date" th:value="${dos?.fiche_medicale.date}" />
+
+</div>							
+
+
+
+ <p><h2>Ordonnance</h2></p>
+
+<div class="form-group">
+<label class="control-label">Medicament</label>
+<input class="form-control" type="text" name="ordonnance.medicament" th:value="${dos?.ordonnance.medicament}" />
+
+</div>
+<div class="form-group">
+<label class="control-label">Recommandations</label>
+<input class="form-control" type="text" name="ordonnance.recommandations" th:value="${dos?.ordonnance.recommandations}" />
+
+</div>
+<div class="form-group">
+<label class="control-label">Date</label>
+<input type="date" name ="ordonnance.date" th:value="${dos?.ordonnance.date}" />
+	
+	</div>
+	<div class="form-group">
+<label class="control-label">Patient</label>
+<input class="form-control" type="text" name="patient.id_utilistr" th:value="${dos?.patient.id_utilistr}" />
+
+</div>
+</div>
+<div class="form-group">
+<label class="control-label">Rendez_vous</label>
+<input class="form-control" type="text" name="rdv" th:value="${dos?.rdv}" />
+
+</div>
+<div>
+<button type="submit" class="btn btn-primary">Save</button>
+</div>
+</form>	
+
+				
+</div>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

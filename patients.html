@@ -1,0 +1,63 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+  layout:decorator="template1">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>list Patient</title>
+ <link rel="stylesheet" type="text/css"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"
+  th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" type="text/css"
+  href="css/style.css"
+  th:href="@{css/style.css}"/>
+</head>
+<body>
+ <p></p>
+<div class="container">
+<form th:action="@{getpatn}" method="get">
+<label>Mot Clé:</label>
+<input type="text" name="id_utilistr" th:value="${idpa}" />
+
+<button class="btn btn-primary">Chercher</button>
+
+
+
+</form>
+
+
+
+
+</div>
+<p></p>
+<div class="container spacer">
+<table class="table table-striped">
+<thead>
+<tr>
+<th>ID</th><th>Nom</th><th>Prenom</th><th>genre</th><th>Telephone</th><th>Mutuelle</th><th>CNSS</th><th>Email</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="p:${listPatient}">
+<td th:text="${p.id_utilistr}"></td>
+<td th:text="${p.nom_patient}"></td>
+<td th:text="${p.prenom_patient}"></td>
+<td th:text="${p.genre}"></td>
+<td th:text="${p.Tel_patient}"></td>
+<td th:text="${p.n_mutuelle}"></td>
+<td th:text="${p.cnss}"></td>
+<td th:text="${p.email}"></td>
+<td><a th:href="@{edit(id_utilistr=${p.id_utilistr})}">Edit</a></td>
+<td><a onclick="return confirm('Etes vous Sûre?')" th:href="@{delete(id_utilistr=${p.id_utilistr})}">Delete</a></td>
+</tr>
+
+</tbody>
+
+
+</table>
+</div> 
+
+</body>
+</html>

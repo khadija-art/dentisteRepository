@@ -1,0 +1,86 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+  layout:decorator="template1">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>  Dossier Patient</title>
+ <link rel="stylesheet" type="text/css"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"
+  th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" type="text/css"
+  href="css/style.css"
+  th:href="@{css/style.css}"/>
+</head>
+<body>
+ <p></p>
+
+
+
+
+
+</div>
+<p></p>
+<div class="container spacer">
+<div class="col-md-6 offset-md-3 message">
+<div class="card card-primary">
+<div class="card-header bg-info text-white">Ordonnance</div>
+<div class="card-body">
+								
+<table class="table table-striped">
+<thead>
+<tr>
+<th>Medicament</th><th>Recommandations</th><th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="d:${idDos}">
+<td th:text="${d.ordonnance. getMedicament()}"></td>
+<td th:text="${d.ordonnance.getRecommandations()}"></td>
+<td th:text="${d.ordonnance.getDate()}"></td>
+
+
+</tr>
+
+</tbody>
+
+
+</table>
+</div> 
+</div>
+</div>
+</div>
+<p></p>
+<div class="container spacer">
+<div class="col-md-6 offset-md-3 message">
+<div class="card card-primary">
+<div class="card-header bg-info text-white">Fiche Medicale</div>
+<div class="card-body">
+								
+<table class="table table-striped">
+<thead>
+<tr>
+<th>Acte Medicale</th><th>Shema Dentaire</th><th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="d:${idDos}">
+<td th:text="${d.fiche_medicale. getActe_medicale()}"></td>
+<td th:text="${d.fiche_medicale. getSchema_dentaire()}"></td>
+<td th:text="${d.fiche_medicale. getDate()}"></td>
+
+</tr>
+
+</tbody>
+
+
+</table>
+</div> 
+</div>
+</div>
+</div>
+
+</body>
+</html>
